@@ -48,7 +48,6 @@ export default function Home() {
   </div>
 )}
 
-      <button className="menu-toggle" onClick={() => setMenuOpen(true)}>☰</button>
 
 {menuOpen && (
   <div className="sidebar-overlay" onClick={() => setMenuOpen(false)}>
@@ -61,13 +60,7 @@ export default function Home() {
     </div>
   </div>
 )}
-      <button
-        className="theme-toggle"
-        onClick={() => setDarkMode(!darkMode)}
-        aria-label="تبديل الوضع الليلي"
-      >
-        {darkMode ? "☀️" : "🌙"}
-      </button>
+      
 
       <div className="search-bar">
         <span className="search-logo">2BAC</span>
@@ -78,9 +71,15 @@ export default function Home() {
       </div>
 
       <header className="home-header">
-        <h1 className="home-logo">2BAC</h1>
-        <p className="home-subtitle">اختر المادة اللي بغيتي تراجع</p>
-      </header>
+  <div className="header-row">
+    <button className="menu-toggle" onClick={() => setMenuOpen(true)}>☰</button>
+    <h1 className="home-logo">2BAC</h1>
+    <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
+      {darkMode ? "☀️" : "🌙"}
+    </button>
+  </div>
+  <p className="home-subtitle">اختر المادة اللي بغيتي تراجع</p>
+</header>
 
       <main className="subjects-grid">
         {subjects.map((subject, index) => (

@@ -500,3 +500,17 @@ body {
     width: 120px;
   }
 }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.header-row .menu-toggle,
+.header-row .theme-toggle {
+  position: static;
+  width: 44px;
+  height: 44px;
+}
