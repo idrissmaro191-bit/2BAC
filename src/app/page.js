@@ -25,9 +25,22 @@ const nationalExamSubjects = [
 ];
 
 export default function Home() {
+    useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 150) {
+        setShowButtons(false);
+      } else {
+        setShowButtons(true);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showLetter, setShowLetter] = useState(true);
+  const [showButtons, setShowButtons] = useState(true);
 
   return (
     <div className={`home-page ${darkMode ? "dark-mode" : ""}`}>
