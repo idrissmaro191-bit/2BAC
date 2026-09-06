@@ -29,6 +29,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showLetter, setShowLetter] = useState(true);
   const [showButtons, setShowButtons] = useState(true);
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, progress: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +42,30 @@ export default function Home() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  useEffect(() => {
+    const examDate = new Date("2027-06-01T08:00:00").getTime();
+    const startDate = new Date("2026-09-01T00:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = examDate - now;
+
+      const totalDuration = examDate - startDate;
+      const elapsed = now - startDate;
+      const progressPercent = Math.min(100, Math.max(0, (elapsed / totalDuration) * 100));
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setCountdown({ days, hours, minutes, seconds, progress: progressPercent });
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (

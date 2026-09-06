@@ -660,3 +660,54 @@ position: fixed !important;
   opacity: 0;
   pointer-events: none;
 }
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.countdown-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 1s linear;
+}
+
+.countdown-inner {
+  width: 130px;
+  height: 130px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0b2e6b;
+  margin-bottom: 0.4rem;
+}
+
+.countdown-numbers {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+.dark-mode .countdown-inner {
+  background: #161b22;
+}
+
+.dark-mode .countdown-label,
+.dark-mode .countdown-numbers {
+  color: #f4d35e;
+}
