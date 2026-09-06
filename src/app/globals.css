@@ -476,3 +476,27 @@ body {
   font-weight: 700;
   color: #0b2e6b;
 }
+
+@media (max-width: 640px) {
+  .home-page {
+    padding-top: 5.5rem;
+  }
+
+  .menu-toggle,
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    top: 1rem;
+  }
+
+  .search-bar {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .search-box input {
+    width: 120px;
+  }
+}
