@@ -101,7 +101,7 @@ export default function Home() {
         {methodologySubjects.map((subject, index) => (
           <Link
             key={subject.name}
-            href={`/subject/${encodeURIComponent(subject.name)}`}
+            href={`/methodology/${encodeURIComponent(subject.name)}`}
             className="subject-card"
             style={{
               animationDelay: `${3 + (subjects.length + index) * 0.15}s`,
@@ -118,7 +118,7 @@ export default function Home() {
         {nationalExamSubjects.map((subject, index) => (
           <Link
             key={subject.name}
-            href={`/subject/${encodeURIComponent(subject.name)}`}
+            href={`/exam/${encodeURIComponent(subject.name)}`}
             className="subject-card"
             style={{
               animationDelay: `${
