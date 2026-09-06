@@ -1,68 +1,131 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
+import SplashScreen from "./SplashScreen";
+
+const subjects = [
+  { name: "اللغة العربية" },
+  { name: "التربية الإسلامية" },
+  { name: "التاريخ والجغرافيا" },
+  { name: "الفلسفة" },
+  { name: "اللغة الفرنسية" },
+  { name: "اللغة الإنجليزية" },
+];
+
+const methodologySubjects = [
+  { name: "اللغة العربية" },
+  { name: "الفلسفة" },
+];
+
+const nationalExamSubjects = [
+  { name: "اللغة العربية" },
+  { name: "التاريخ والجغرافيا" },
+  { name: "الفلسفة" },
+  { name: "اللغة الإنجليزية" },
+];
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [showLetter, setShowLetter] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={`home-page ${darkMode ? "dark-mode" : ""}`}>
+      <SplashScreen />
+      {showLetter && (
+  <div className="letter-overlay">
+    <div className="letter-card">
+      <button className="letter-close" onClick={() => setShowLetter(false)}>✕</button>
+      <div className="letter-emoji-row">🌸 💌 🌷</div>
+      <h2 className="letter-title">رسالة لكل تلميذ وتلميذة</h2>
+      <p className="letter-body">
+        النجاح لا يأتي بالصدفة، بل يُبنى بالإصرار والمثابرة.
+        كل صفحة تقرؤونها، وكل درس تراجعونه، خطوة تقرّبكم
+        من حلمكم المنشود. آمنوا بأنفسكم، وواصلوا الطريق
+        بثقة وعزيمة، فالنجاح حليف الصابرين. 🌟
+      </p>
+      <p className="letter-signature">مرحبا بكم 🌹</p>
+    </div>
+  </div>
+)}
+
+      <button className="menu-toggle" onClick={() => setMenuOpen(true)}>☰</button>
+
+{menuOpen && (
+  <div className="sidebar-overlay" onClick={() => setMenuOpen(false)}>
+    <div className="sidebar" onClick={(e) => e.stopPropagation()}>
+      <button className="sidebar-close" onClick={() => setMenuOpen(false)}>✕</button>
+      <h2 className="sidebar-title">تواصل معنا</h2>
+      <div className="contact-item"><span>📧</span><span>idrissmarzoug170@gmail.com</span></div>
+      <div className="contact-item"><span>📞</span><span>0602034179</span></div>
+      <div className="contact-item"><span>📷</span><span>idriiss_mrg</span></div>
+    </div>
+  </div>
+)}
+      <button
+        className="theme-toggle"
+        onClick={() => setDarkMode(!darkMode)}
+        aria-label="تبديل الوضع الليلي"
+      >
+        {darkMode ? "☀️" : "🌙"}
+      </button>
+
+      <div className="search-bar">
+        <span className="search-logo">2BAC</span>
+        <div className="search-box">
+          <input type="text" placeholder="ابحث عن درس..." />
+          <span>🔍</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </div>
+
+      <header className="home-header">
+        <h1 className="home-logo">2BAC</h1>
+        <p className="home-subtitle">اختر المادة اللي بغيتي تراجع</p>
+      </header>
+
+      <main className="subjects-grid">
+        {subjects.map((subject, index) => (
+          <button
+            key={subject.name}
+            className="subject-card"
+            style={{ animationDelay: `${3 + index * 0.15}s` }}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            {subject.name}
+          </button>
+        ))}
+      </main>
+
+      <div className="section-banner">منهجيات الباكالوريا</div>
+
+      <main className="subjects-grid methodology-grid">
+        {methodologySubjects.map((subject, index) => (
+          <button
+            key={subject.name}
+            className="subject-card"
+            style={{
+              animationDelay: `${3 + (subjects.length + index) * 0.15}s`,
+            }}
           >
-            Documentation
-          </a>
-        </div>
+            {subject.name}
+          </button>
+        ))}
+      </main>
+
+      <div className="section-banner exam-banner">الامتحانات الوطنية للباكالوريا</div>
+
+      <main className="subjects-grid">
+        {nationalExamSubjects.map((subject, index) => (
+          <button
+            key={subject.name}
+            className="subject-card"
+            style={{
+              animationDelay: `${
+                3 + (subjects.length + methodologySubjects.length + index) * 0.15
+              }s`,
+            }}
+          >
+            {subject.name}
+          </button>
+        ))}
       </main>
     </div>
   );
