@@ -68,17 +68,27 @@ export default function SubjectPage() {
 
   return (
     <div className="subject-page">
-      <Link href="/" className="back-link">← رجوع للرئيسية</Link>
+      <div className="subject-page-header">
+        <Link href="/" className="back-button">← رجوع للرئيسية</Link>
+      </div>
       <h1 className="subject-page-title">{subjectName}</h1>
       <div className="lessons-list">
         {items.length > 0 ? (
           items.map((item, index) =>
             item.type === "section" ? (
-              <div key={index} className="section-divider">
+              <div
+                key={index}
+                className="section-divider"
+                style={{ animationDelay: `${index * 0.08}s` }}
+              >
                 {item.title}
               </div>
             ) : (
-              <div key={index} className="lesson-item">
+              <div
+                key={index}
+                className="lesson-item"
+                style={{ animationDelay: `${index * 0.08}s` }}
+              >
                 {item.title}
               </div>
             )
