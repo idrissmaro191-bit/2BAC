@@ -567,3 +567,72 @@ text-decoration: none;
   color: #000000;
   background: #ffffff;
 }
+
+.subject-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem 1.2rem 3rem;
+  background: #ffffff !important;
+}
+
+.subject-page-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.back-button {
+  background: #1d4ed8;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  display: inline-block;
+}
+
+.subject-page-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #0b2e6b;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.section-divider {
+  background: #ffd700;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateX(80px);
+  animation: slideInRight 0.5s ease forwards;
+}
+
+.lesson-item {
+  border: 2px solid #000000;
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #000000;
+  background: #ffffff;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(80px);
+  animation: slideInRight 0.5s ease forwards;
+}
