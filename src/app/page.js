@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import SplashScreen from "./SplashScreen";
 
@@ -25,7 +25,12 @@ const nationalExamSubjects = [
 ];
 
 export default function Home() {
-    useEffect(() => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showLetter, setShowLetter] = useState(true);
+  const [showButtons, setShowButtons] = useState(true);
+
+  useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
       if (currentScroll > 150) {
@@ -37,17 +42,13 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const [darkMode, setDarkMode] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showLetter, setShowLetter] = useState(true);
-  const [showButtons, setShowButtons] = useState(true);
 
   return (
     <div className={`home-page ${darkMode ? "dark-mode" : ""}`}>
       <SplashScreen />
 
-      <button className="menu-toggle" onClick={() => setMenuOpen(true)}>☰</button>
-      <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
+      <button className={`menu-toggle ${!showButtons ? "hide-btn" : ""}`} onClick={() => setMenuOpen(true)}>☰</button>
+      <button className={`theme-toggle ${!showButtons ? "hide-btn" : ""}`} onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? "☀️" : "🌙"}
       </button>
 
