@@ -31,6 +31,10 @@ export default function Home() {
   return (
     <div className={`home-page ${darkMode ? "dark-mode" : ""}`}>
       <SplashScreen />
+      <button className="menu-toggle" onClick={() => setMenuOpen(true)}>☰</button>
+<button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
+  {darkMode ? "☀️" : "🌙"}
+</button>
       {showLetter && (
   <div className="letter-overlay">
     <div className="letter-card">
@@ -72,12 +76,8 @@ export default function Home() {
 
       <header className="home-header">
   <div className="header-row">
-    <button className="menu-toggle" onClick={() => setMenuOpen(true)}>☰</button>
-    <h1 className="home-logo">2BAC</h1>
-    <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
-      {darkMode ? "☀️" : "🌙"}
-    </button>
-  </div>
+  <h1 className="home-logo">2BAC</h1>
+</div>
   <p className="home-subtitle">اختر المادة اللي بغيتي تراجع</p>
 </header>
 

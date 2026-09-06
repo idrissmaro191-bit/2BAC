@@ -355,6 +355,7 @@ body {
   background: #ffffff;
   font-size: 1.4rem;
   cursor: pointer;
+  color: #000000;
 }
 
 .sidebar-overlay {
@@ -533,12 +534,7 @@ body {
   gap: 1.2rem;
 }
 
-.header-row .menu-toggle,
-.header-row .theme-toggle {
-  position: static;
-  width: 44px;
-  height: 44px;
-}
+
 
 .home-page {
   overflow-x: hidden;
