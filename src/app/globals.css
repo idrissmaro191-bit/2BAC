@@ -433,6 +433,26 @@ body {
   animation: letterPopIn 0.5s ease forwards;
   animation-delay: 3.2s;
 }
+@media (max-width: 480px) {
+  .letter-card {
+    width: 85%;
+    max-width: 340px;
+    padding: 1.5rem 1.2rem;
+  }
+
+  .letter-title {
+    font-size: 1.1rem;
+  }
+
+  .letter-body {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .letter-emoji-row {
+    font-size: 1.3rem;
+  }
+}
 
 @keyframes letterPopIn {
   to {
