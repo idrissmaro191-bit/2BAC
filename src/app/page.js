@@ -43,6 +43,7 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   useEffect(() => {
     const examDate = new Date("2027-06-01T08:00:00").getTime();
     const startDate = new Date("2026-09-01T00:00:00").getTime();
@@ -150,6 +151,22 @@ export default function Home() {
           </Link>
         ))}
       </main>
+
+      <div className="countdown-wrapper">
+        <div
+          className="countdown-circle"
+          style={{
+            background: `conic-gradient(#1d4ed8 ${countdown.progress * 3.6}deg, #e5e7eb 0deg)`,
+          }}
+        >
+          <div className="countdown-inner">
+            <span className="countdown-label">الامتحان الوطني 2027</span>
+            <span className="countdown-numbers">
+              {countdown.days}ي {countdown.hours}س {countdown.minutes}د {countdown.seconds}ث
+            </span>
+          </div>
+        </div>
+      </div>
 
       <div className="section-banner exam-banner">الامتحانات الوطنية للباكالوريا</div>
 
