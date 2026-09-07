@@ -2,11 +2,18 @@
 import { useEffect, useState } from "react";
 
 export default function SplashScreen() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
+    const alreadySeen = sessionStorage.getItem("splashSeen");
+    if (alreadySeen) {
+      setVisible(false);
+      return;
+    }
+
+    setVisible(true);
     const generatedStars = Array.from({ length: 40 }).map((_, i) => ({
       id: i,
       top: Math.random() * 100,
@@ -16,7 +23,10 @@ export default function SplashScreen() {
     setStars(generatedStars);
 
     const fadeTimer = setTimeout(() => setFadeOut(true), 2600);
-    const removeTimer = setTimeout(() => setVisible(false), 3000);
+    const removeTimer = setTimeout(() => {
+      setVisible(false);
+      sessionStorage.setItem("splashSeen", "true");
+    }, 3000);
 
     return () => {
       clearTimeout(fadeTimer);
