@@ -1,5 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const lessonsData = {
@@ -318,12 +319,18 @@ const lessonsData = {
 };
 
 export default function SubjectPage() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("darkMode");
+    if (saved === "true") setDarkMode(true);
+  }, []);
   const params = useParams();
   const subjectName = decodeURIComponent(params.name);
   const items = lessonsData[subjectName] || [];
 
   return (
-    <div className="subject-page">
+    <div className={`subject-page ${darkMode ? "dark-mode" : ""}`}>
       <div className="subject-page-header">
         <Link href="/" className="back-button">← رجوع للرئيسية</Link>
       </div>

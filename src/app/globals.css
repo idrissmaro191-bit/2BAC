@@ -262,7 +262,29 @@ position: fixed !important;
 }
 
 .dark-mode .theme-toggle {
+  .dark-mode.subject-page {
+  background: #0d1117 !important;
+}
+
+.dark-mode .subject-page-title {
+  color: #f4d35e;
+}
+
+.dark-mode .lesson-item {
   background: #161b22;
+  border-color: #f4d35e;
+  color: #f4d35e;
+}
+
+.dark-mode .section-divider {
+  border-color: #f4d35e;
+}
+
+.dark-mode .subsection-divider {
+  border-color: #f4d35e;
+}
+  .dark-mode.subject-page {
+background: #161b22;
   border-color: #f4d35e;
 }
 
