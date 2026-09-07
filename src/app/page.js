@@ -155,7 +155,7 @@ const [delay, setDelay] = useState(3);
             href={`/methodology/${encodeURIComponent(subject.name)}`}
             className="subject-card"
             style={{
-              animationDelay: `${3 + (subjects.length + index) * 0.15}s`,
+             animationDelay: `${delay + (subjects.length + index) * 0.15}s`,
             }}
           >
             {subject.name}
@@ -188,9 +188,9 @@ const [delay, setDelay] = useState(3);
             href={`/exam/${encodeURIComponent(subject.name)}`}
             className="subject-card"
             style={{
-              animationDelay: `${
-                3 + (subjects.length + methodologySubjects.length + index) * 0.15
-              }s`,
+             animationDelay: `${
+  delay + (subjects.length + methodologySubjects.length + index) * 0.15
+}s`,
             }}
           >
             {subject.name}
