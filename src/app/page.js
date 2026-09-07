@@ -27,10 +27,21 @@ const nationalExamSubjects = [
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showLetter, setShowLetter] = useState(true);
+  const [showLetter, setShowLetter] = useState(false);
+const [delay, setDelay] = useState(3);
   const [showButtons, setShowButtons] = useState(true);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, progress: 0 });
 
+  useEffect(() => {
+    const alreadySeen = sessionStorage.getItem("splashSeen");
+    if (alreadySeen) {
+      setShowLetter(false);
+      setDelay(0);
+    } else {
+      setShowLetter(true);
+      setDelay(3);
+    }
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
@@ -128,7 +139,7 @@ export default function Home() {
             key={subject.name}
             href={`/subject/${encodeURIComponent(subject.name)}`}
             className="subject-card"
-            style={{ animationDelay: `${3 + index * 0.15}s` }}
+            style={{ animationDelay: `${delay + index * 0.15}s` }}
           >
             {subject.name}
           </Link>
