@@ -711,3 +711,18 @@ position: fixed !important;
 .dark-mode .countdown-numbers {
   color: #f4d35e;
 }
+
+.subsection-divider {
+  background: #22c55e;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0.8rem;
+  opacity: 0;
+  transform: translateX(80px);
+  animation: slideInRight 0.5s ease forwards;
+}
