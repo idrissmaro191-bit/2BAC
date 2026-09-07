@@ -162,7 +162,7 @@ export default function Home() {
           <div className="countdown-inner">
             <span className="countdown-label">الامتحان الوطني 2027</span>
             <span className="countdown-numbers">
-              {countdown.days}ي {countdown.hours}س {countdown.minutes}د {countdown.seconds}ث
+              {countdown.days} يوم
             </span>
           </div>
         </div>
