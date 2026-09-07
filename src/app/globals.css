@@ -262,7 +262,11 @@ position: fixed !important;
 }
 
 .dark-mode .theme-toggle {
-  .dark-mode.subject-page {
+  background: #161b22;
+  border-color: #f4d35e;
+}
+
+.dark-mode.subject-page {
   background: #0d1117 !important;
 }
 
