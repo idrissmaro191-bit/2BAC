@@ -589,15 +589,7 @@ position: fixed !important;
   margin-top: 1.5rem;
 }
 
-.lesson-item {
-  border: 2px solid #000000;
-  border-radius: 10px;
-  padding: 0.9rem 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #000000;
-  background: #ffffff;
-}
+
 
 .subject-page {
   min-height: 100vh;
@@ -669,6 +661,14 @@ position: fixed !important;
   opacity: 0;
   transform: translateX(80px);
   animation: slideInRight 0.5s ease forwards;
+  .lesson-item:hover {
+  background: #eafaf1;
+  transform: translateY(-4px);
+}
+
+.lesson-item:active {
+  transform: scale(0.97);
+}
 }
 
 .menu-toggle,
@@ -771,6 +771,9 @@ position: fixed !important;
   font-weight: 800;
   color: #0b2e6b;
   margin: 2rem 0 3rem;
+  opacity: 0;
+  transform: translateX(80px);
+  animation: slideInRight 0.5s ease forwards;
 }
 
 .pdf-button {
@@ -783,4 +786,18 @@ position: fixed !important;
   font-size: 1.2rem;
   font-weight: 800;
   text-decoration: none;
+  opacity: 0;
+  transform: translateX(80px);
+  animation: slideInRight 0.5s ease forwards;
+  animation-delay: 0.15s;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pdf-button:hover {
+  background: #16a34a;
+  transform: translateY(-4px);
+}
+
+.pdf-button:active {
+  transform: scale(0.95);
 }

@@ -103,9 +103,14 @@ export default function ExamPage() {
                   {item.title}
                 </div>
               ) : (
-                <div key={index} className="lesson-item" style={{ animationDelay: `${index * 0.08}s` }}>
-                  {item.title}
-                </div>
+                <Link
+                key={index}
+                href={`/lesson/${encodeURIComponent(item.title)}`}
+                className="lesson-item"
+                style={{ animationDelay: `${index * 0.08}s` }}
+              >
+                {item.title}
+              </Link>
               )
           )
         ) : (
