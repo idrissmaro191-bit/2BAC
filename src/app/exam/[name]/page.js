@@ -3,6 +3,31 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 
 const examData = {
+  "التاريخ والجغرافيا": [
+    { type: "subsection", title: "الإمتحانات الوطنية للتاريخ والجغرافيا مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2023 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2022 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2021 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2020 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2019 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2018 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2017 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2016 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2015 مسلك الآداب" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2014 مسلك الآداب" },
+
+    { type: "subsection", title: "الإمتحانات الوطنية للتاريخ والجغرافيا مسلك علوم الإنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2023 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2022 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2021 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2020 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2019 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2018 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2017 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2016 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2015 مسلك علوم إنسانية" },
+    { type: "lesson", title: "الامتحان الوطني في التاريخ والجغرافيا 2014 مسلك علوم إنسانية" },
+  ],
   "اللغة العربية": [
     { type: "section", title: "الامتحانات الوطنية - اللغة العربية" },
   ],
@@ -23,14 +48,18 @@ export default function ExamPage() {
         {items.length > 0 ? (
           items.map((item, index) =>
             item.type === "section" ? (
-              <div key={index} className="section-divider" style={{ animationDelay: `${index * 0.08}s` }}>
-                {item.title}
-              </div>
-            ) : (
-              <div key={index} className="lesson-item" style={{ animationDelay: `${index * 0.08}s` }}>
-                {item.title}
-              </div>
-            )
+                <div key={index} className="section-divider" style={{ animationDelay: `${index * 0.08}s` }}>
+                  {item.title}
+                </div>
+              ) : item.type === "subsection" ? (
+                <div key={index} className="subsection-divider" style={{ animationDelay: `${index * 0.08}s` }}>
+                  {item.title}
+                </div>
+              ) : (
+                <div key={index} className="lesson-item" style={{ animationDelay: `${index * 0.08}s` }}>
+                  {item.title}
+                </div>
+              )
           )
         ) : (
           <p style={{ textAlign: "center" }}>لا توجد امتحانات مضافة بعد لهذه المادة.</p>
