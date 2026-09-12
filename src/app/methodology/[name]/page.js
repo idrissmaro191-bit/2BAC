@@ -3,6 +3,12 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 
 const methodologyData = {
+  "الفلسفة": [
+    { type: "subsection", title: "منهجيات الفلسفة" },
+    { type: "lesson", title: "منهجية النص" },
+    { type: "lesson", title: "منهجية السؤال" },
+    { type: "lesson", title: "منهجية القولة" },
+  ],
   "اللغة العربية": [
     { type: "section", title: "منهجيات الباكالوريا - اللغة العربية" },
   ],
@@ -23,14 +29,18 @@ export default function MethodologyPage() {
         {items.length > 0 ? (
           items.map((item, index) =>
             item.type === "section" ? (
-              <div key={index} className="section-divider" style={{ animationDelay: `${index * 0.08}s` }}>
-                {item.title}
-              </div>
-            ) : (
-              <div key={index} className="lesson-item" style={{ animationDelay: `${index * 0.08}s` }}>
-                {item.title}
-              </div>
-            )
+                <div key={index} className="section-divider" style={{ animationDelay: `${index * 0.08}s` }}>
+                  {item.title}
+                </div>
+              ) : item.type === "subsection" ? (
+                <div key={index} className="subsection-divider" style={{ animationDelay: `${index * 0.08}s` }}>
+                  {item.title}
+                </div>
+              ) : (
+                <div key={index} className="lesson-item" style={{ animationDelay: `${index * 0.08}s` }}>
+                  {item.title}
+                </div>
+              )
           )
         ) : (
           <p style={{ textAlign: "center" }}>لا توجد منهجيات مضافة بعد لهذه المادة.</p>
