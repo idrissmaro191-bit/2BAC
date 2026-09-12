@@ -10,7 +10,11 @@ const methodologyData = {
     { type: "lesson", title: "منهجية القولة" },
   ],
   "اللغة العربية": [
-    { type: "section", title: "منهجيات الباكالوريا - اللغة العربية" },
+    { type: "subsection", title: "منهجيات العربية" },
+    { type: "lesson", title: "منهجية النص النظري" },
+    { type: "lesson", title: "منهجية النص التطبيقي" },
+    { type: "lesson", title: "منهجية ظاهرة الشعر العربي الحديث" },
+    { type: "lesson", title: "منهجية اللص والكلاب" },
   ],
 };
 
