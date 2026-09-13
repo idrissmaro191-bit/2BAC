@@ -817,3 +817,11 @@ a.contact-item {
 .pdf-button:active {
   transform: scale(0.95);
 }
+
+.dark-mode.lesson-page {
+  background: #0d1117 !important;
+}
+
+.dark-mode .lesson-page-title {
+  color: #f4d35e;
+}
