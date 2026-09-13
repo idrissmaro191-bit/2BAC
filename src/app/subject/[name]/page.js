@@ -319,15 +319,15 @@ const lessonsData = {
 };
 
 export default function SubjectPage() {
+  const params = useParams();
+  const subjectName = decodeURIComponent(params.name);
+  const items = lessonsData[subjectName] || [];
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("darkMode");
     if (saved === "true") setDarkMode(true);
   }, []);
-  const params = useParams();
-  const subjectName = decodeURIComponent(params.name);
-  const items = lessonsData[subjectName] || [];
 
   return (
     <div className={`subject-page ${darkMode ? "dark-mode" : ""}`}>
@@ -356,13 +356,13 @@ export default function SubjectPage() {
               </div>
             ) : (
               <Link
-  key={index}
-  href={`/lesson/${encodeURIComponent(item.title)}`}
-  className="lesson-item"
-  style={{ animationDelay: `${index * 0.08}s` }}
->
-  {item.title}
-</Link>
+                key={index}
+                href={`/lesson/${encodeURIComponent(item.title)}`}
+                className="lesson-item"
+                style={{ animationDelay: `${index * 0.08}s` }}
+              >
+                {item.title}
+              </Link>
             )
           )
         ) : (
