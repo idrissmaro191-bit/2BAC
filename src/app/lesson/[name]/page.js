@@ -1,15 +1,22 @@
 "use client";
 import { useParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function LessonPage() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("darkMode");
+    if (saved === "true") setDarkMode(true);
+  }, []);
   const params = useParams();
   const lessonName = decodeURIComponent(params.name);
 
   const pdfUrl = "#";
 
-  return (
-    <div className="lesson-page">
+  
+    <div className={`lesson-page ${darkMode ? "dark-mode" : ""}`}>
       <div className="subject-page-header">
         <Link href="/" className="back-button">← رجوع للرئيسية</Link>
       </div>
