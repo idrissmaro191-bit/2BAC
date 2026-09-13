@@ -411,6 +411,13 @@ position: fixed !important;
   padding: 2rem 1.5rem;
   animation: slideInLeft 0.3s ease forwards;
 }
+.sidebar-closing {
+  animation: slideOutLeft 0.3s ease forwards;
+}
+
+@keyframes slideOutLeft {
+  to { transform: translateX(-100%); }
+}
 
 @keyframes slideInLeft {
   from { transform: translateX(-100%); }

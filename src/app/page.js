@@ -27,6 +27,7 @@ const nationalExamSubjects = [
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuClosing, setMenuClosing] = useState(false);
   const [showLetter, setShowLetter] = useState(false);
 const [delay, setDelay] = useState(3);
   const [showButtons, setShowButtons] = useState(true);
@@ -107,9 +108,21 @@ const [delay, setDelay] = useState(3);
       )}
 
       {menuOpen && (
-        <div className="sidebar-overlay" onClick={() => setMenuOpen(false)}>
-          <div className="sidebar" onClick={(e) => e.stopPropagation()}>
-            <button className="sidebar-close" onClick={() => setMenuOpen(false)}>✕</button>
+        <div className="sidebar-overlay" onClick={() => {
+  setMenuClosing(true);
+  setTimeout(() => {
+    setMenuOpen(false);
+    setMenuClosing(false);
+  }, 300);
+}}>
+          <div className={`sidebar ${menuClosing ? "sidebar-closing" : ""}`} onClick={(e) => e.stopPropagation()}>
+            <button className="sidebar-close" onClick={() => {
+  setMenuClosing(true);
+  setTimeout(() => {
+    setMenuOpen(false);
+    setMenuClosing(false);
+  }, 300);
+}}>✕</button>
             <h2 className="sidebar-title">تواصل معنا</h2>
             <p className="contact-label">للتواصل معي على الواتساب:</p>
 <a href="https://wa.me/212602034179" target="_blank" rel="noopener noreferrer" className="contact-item">
