@@ -287,10 +287,7 @@ position: fixed !important;
 .dark-mode .subsection-divider {
   border-color: #f4d35e;
 }
-  .dark-mode.subject-page {
-background: #161b22;
-  border-color: #f4d35e;
-}
+  
 
 .section-banner {
   max-width: 700px;
