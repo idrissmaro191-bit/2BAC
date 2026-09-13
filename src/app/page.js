@@ -111,9 +111,20 @@ const [delay, setDelay] = useState(3);
           <div className="sidebar" onClick={(e) => e.stopPropagation()}>
             <button className="sidebar-close" onClick={() => setMenuOpen(false)}>✕</button>
             <h2 className="sidebar-title">تواصل معنا</h2>
-            <div className="contact-item"><span>📧</span><span>idrissmarzoug170@gmail.com</span></div>
-            <div className="contact-item"><span>📞</span><span>0602034179</span></div>
-            <div className="contact-item"><span>📷</span><span>idriiss_mrg</span></div>
+            <p className="contact-label">للتواصل معي على الواتساب:</p>
+<a href="https://wa.me/212602034179" target="_blank" rel="noopener noreferrer" className="contact-item">
+  <span>📞</span><span>0602034179</span>
+</a>
+
+<p className="contact-label">للتواصل معي على الإيميل:</p>
+<a href="mailto:idrissmarzoug170@gmail.com" className="contact-item">
+  <span>📧</span><span>idrissmarzoug170@gmail.com</span>
+</a>
+
+<p className="contact-label">للتواصل معي على الإنستغرام:</p>
+<a href="https://www.instagram.com/2bac_officiel_?stkn=MTd1bzU3eGE4OWhzZw==" target="_blank" rel="noopener noreferrer" className="contact-item">
+  <span>📷</span><span>2bac_officiel_</span>
+</a>
           </div>
         </div>
       )}
