@@ -26,6 +26,15 @@ const nationalExamSubjects = [
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+
+useEffect(() => {
+  const saved = localStorage.getItem("darkMode");
+  if (saved === "true") setDarkMode(true);
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("darkMode", darkMode);
+}, [darkMode]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuClosing, setMenuClosing] = useState(false);
   const [showLetter, setShowLetter] = useState(false);
